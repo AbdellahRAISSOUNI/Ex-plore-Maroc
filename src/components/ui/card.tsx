@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -113,12 +114,17 @@ const CardFooter = React.forwardRef<
 
 CardFooter.displayName = 'CardFooter';
 
-interface CardImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface CardImageProps {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
   aspectRatio?: '16:9' | '4:3' | '1:1' | '3:4' | '9:16';
+  className?: string;
 }
 
-const CardImage = React.forwardRef<HTMLImageElement, CardImageProps>(
-  ({ className, aspectRatio = '16:9', ...props }, ref) => {
+const CardImage = React.forwardRef<HTMLDivElement, CardImageProps>(
+  ({ className, aspectRatio = '16:9', src, alt, width, height }, ref) => {
     const aspectRatios = {
       '16:9': 'aspect-video',
       '4:3': 'aspect-[4/3]',
@@ -128,11 +134,13 @@ const CardImage = React.forwardRef<HTMLImageElement, CardImageProps>(
     };
 
     return (
-      <div className={cn('overflow-hidden', aspectRatios[aspectRatio])}>
-        <img
-          ref={ref}
+      <div ref={ref} className={cn('overflow-hidden', aspectRatios[aspectRatio])}>
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
           className={cn('w-full h-full object-cover', className)}
-          {...props}
         />
       </div>
     );

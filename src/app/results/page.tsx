@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,7 +12,8 @@ import { mockLocations, mockHotels, mockRestaurants } from '@/lib/mock-data';
 import { Location } from '@/types';
 import { useAuth } from '@/lib/auth-context';
 
-export default function ResultsPage() {
+// Separate component that uses useSearchParams
+function ResultsContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { logout } = useAuth();
@@ -273,5 +274,14 @@ export default function ResultsPage() {
         </motion.section>
       </motion.div>
     </main>
+  );
+}
+
+// Main component with Suspense
+export default function ResultsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <ResultsContent />
+    </Suspense>
   );
 } 

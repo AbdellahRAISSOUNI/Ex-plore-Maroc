@@ -130,3 +130,43 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Images and data about Moroccan landmarks are used for demonstration purposes only
 - Icons provided by React Icons and Feather Icons
 - UI inspiration from various travel applications
+
+## Deployment to Vercel
+
+### Method 1: Using Vercel CLI
+
+1. Install Vercel CLI
+   ```bash
+   npm install -g vercel
+   ```
+
+2. Login to Vercel
+   ```bash
+   vercel login
+   ```
+
+3. Deploy the project
+   ```bash
+   vercel
+   ```
+
+### Method 2: Using Vercel Dashboard
+
+1. Push your code to a Git repository (GitHub, GitLab, or Bitbucket)
+
+2. Go to [Vercel Dashboard](https://vercel.com/dashboard)
+
+3. Click "New Project"
+
+4. Import your repository
+
+5. Configure the project:
+   - Framework Preset: Next.js
+   - Build Command: `npm run build`
+   - Output Directory: `.next`
+
+6. Click "Deploy"
+
+### Environment Variables
+
+No environment variables are required for basic functionality as this is a demo app.

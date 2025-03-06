@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="256" fill="#00796B" />
+  
+  <!-- Minimalistic Moroccan Arch -->
+  <path d="M128 320 Q 256 180 384 320" stroke="#FFFFFF" stroke-width="16" fill="none" />
+  
+  <!-- Minimalistic Star -->
+  <path d="M256 160 L 276 220 L 340 220 L 288 260 L 308 320 L 256 280 L 204 320 L 224 260 L 172 220 L 236 220 Z" fill="#FFC107" />
+  
+  <!-- Text -->
+  <text x="256" y="380" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#FFFFFF">MAROC</text>
+</svg> 

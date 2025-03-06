@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { FiSearch, FiStar, FiMapPin } from 'react-icons/fi';
 import { MobileNav } from '@/components/layout/mobile-nav';

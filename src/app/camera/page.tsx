@@ -128,9 +128,11 @@ export default function CameraPage() {
               <div className="absolute inset-0 pointer-events-none z-10 border-[12px] border-black rounded-[24px]">
                 <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-1/4 h-1 bg-gray-800 rounded-full"></div>
               </div>
-              <img 
+              <Image 
                 src={capturedImage} 
-                alt="Captured" 
+                alt="Captured image" 
+                width={400}
+                height={300}
                 className="w-full h-auto"
               />
             </div>
