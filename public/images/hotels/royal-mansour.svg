@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="225" viewBox="0 0 400 225">
+  <!-- Background -->
+  <rect width="400" height="225" fill="#E8EAF6" />
+  
+  <!-- Sky -->
+  <rect width="400" height="100" fill="#C5CAE9" />
+  
+  <!-- Hotel building -->
+  <rect x="100" y="50" width="200" height="175" fill="#FFFFFF" />
+  
+  <!-- Roof -->
+  <polygon points="100,50 300,50 200,20" fill="#5C6BC0" />
+  
+  <!-- Windows -->
+  <g fill="#E8EAF6">
+    <!-- First row -->
+    <rect x="120" y="70" width="20" height="30" />
+    <rect x="160" y="70" width="20" height="30" />
+    <rect x="200" y="70" width="20" height="30" />
+    <rect x="240" y="70" width="20" height="30" />
+    <rect x="280" y="70" width="20" height="30" />
+    
+    <!-- Second row -->
+    <rect x="120" y="110" width="20" height="30" />
+    <rect x="160" y="110" width="20" height="30" />
+    <rect x="200" y="110" width="20" height="30" />
+    <rect x="240" y="110" width="20" height="30" />
+    <rect x="280" y="110" width="20" height="30" />
+    
+    <!-- Third row -->
+    <rect x="120" y="150" width="20" height="30" />
+    <rect x="160" y="150" width="20" height="30" />
+    <rect x="240" y="150" width="20" height="30" />
+    <rect x="280" y="150" width="20" height="30" />
+  </g>
+  
+  <!-- Main entrance -->
+  <rect x="190" y="150" width="40" height="75" fill="#3F51B5" />
+  <rect x="200" y="150" width="20" height="50" fill="#C5CAE9" />
+  
+  <!-- Decorative elements -->
+  <rect x="100" y="50" width="200" height="5" fill="#3F51B5" />
+  <rect x="100" y="120" width="200" height="5" fill="#3F51B5" />
+  <rect x="100" y="190" width="200" height="5" fill="#3F51B5" />
+  
+  <!-- Palm trees -->
+  <g>
+    <!-- Left palm -->
+    <rect x="50" y="150" width="10" height="75" fill="#795548" />
+    <path d="M55,150 C30,130 20,120 30,110 C40,120 50,120 55,110 C60,120 70,120 80,110 C90,120 80,130 55,150" fill="#4CAF50" />
+    
+    <!-- Right palm -->
+    <rect x="340" y="150" width="10" height="75" fill="#795548" />
+    <path d="M345,150 C320,130 310,120 320,110 C330,120 340,120 345,110 C350,120 360,120 370,110 C380,120 370,130 345,150" fill="#4CAF50" />
+  </g>
+  
+  <!-- Swimming pool -->
+  <rect x="150" y="180" width="100" height="30" rx="5" fill="#81D4FA" />
+  <rect x="160" y="185" width="80" height="20" rx="3" fill="#29B6F6" />
+  
+  <!-- Text -->
+  <text x="200" y="215" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#3F51B5">Royal Mansour, Marrakech</text>
+</svg> 

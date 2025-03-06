@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="225" viewBox="0 0 400 225">
+  <!-- Background -->
+  <rect width="400" height="225" fill="#E3F2FD" />
+  
+  <!-- Sky -->
+  <rect width="400" height="150" fill="#90CAF9" />
+  
+  <!-- Ground -->
+  <rect y="150" width="400" height="75" fill="#FFCC80" />
+  
+  <!-- Hassan Tower -->
+  <rect x="150" y="30" width="100" height="170" fill="#D84315" />
+  
+  <!-- Tower details -->
+  <g fill="#BF360C">
+    <rect x="160" y="40" width="80" height="10" />
+    <rect x="160" y="60" width="80" height="10" />
+    <rect x="160" y="80" width="80" height="10" />
+    <rect x="160" y="100" width="80" height="10" />
+    <rect x="160" y="120" width="80" height="10" />
+    <rect x="160" y="140" width="80" height="10" />
+    <rect x="160" y="160" width="80" height="10" />
+    <rect x="160" y="180" width="80" height="10" />
+  </g>
+  
+  <!-- Tower windows -->
+  <g fill="#FFCCBC">
+    <rect x="170" y="50" width="15" height="20" rx="5" />
+    <rect x="195" y="50" width="15" height="20" rx="5" />
+    <rect x="220" y="50" width="15" height="20" rx="5" />
+    <rect x="170" y="90" width="15" height="20" rx="5" />
+    <rect x="195" y="90" width="15" height="20" rx="5" />
+    <rect x="220" y="90" width="15" height="20" rx="5" />
+    <rect x="170" y="130" width="15" height="20" rx="5" />
+    <rect x="195" y="130" width="15" height="20" rx="5" />
+    <rect x="220" y="130" width="15" height="20" rx="5" />
+  </g>
+  
+  <!-- Surrounding buildings -->
+  <rect x="50" y="120" width="70" height="80" fill="#E65100" />
+  <rect x="280" y="130" width="70" height="70" fill="#E65100" />
+  
+  <!-- Text -->
+  <text x="200" y="215" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#BF360C">Hassan Tower, Rabat</text>
+</svg> 

@@ -3,24 +3,110 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #00796b;
+  --primary-dark: #004d40;
+  --primary-light: #48a999;
+  --secondary: #e65100;
+  --secondary-dark: #ac1900;
+  --secondary-light: #ff833a;
+  --accent: #ffc107;
+  --error: #b00020;
+  --success: #4caf50;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #00796b;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #48a999;
+  --primary-dark: #00796b;
+  --primary-light: #b2dfdb;
+  --secondary: #ff833a;
+  --secondary-dark: #e65100;
+  --secondary-light: #ffbd59;
+  --card: #171717;
+  --card-foreground: #ededed;
+  --border: #374151;
+  --input: #374151;
+  --ring: #48a999;
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-secondary-light: var(--secondary-light);
+  --color-accent: var(--accent);
+  --color-error: var(--error);
+  --color-success: var(--success);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile-first approach */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* Remove blue highlight on mobile tap */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Disable pull-to-refresh */
+html {
+  overscroll-behavior-y: contain;
+}
+
+/* Dark mode transitions */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#E8F5E9"/>
+  
+  <!-- Grid lines -->
+  <g stroke="#B0BEC5" stroke-width="1" opacity="0.3">
+    <g id="horizontal-lines">
+      <line x1="0" y1="100" x2="1000" y2="100"/>
+      <line x1="0" y1="200" x2="1000" y2="200"/>
+      <line x1="0" y1="300" x2="1000" y2="300"/>
+      <line x1="0" y1="400" x2="1000" y2="400"/>
+      <line x1="0" y1="500" x2="1000" y2="500"/>
+      <line x1="0" y1="600" x2="1000" y2="600"/>
+      <line x1="0" y1="700" x2="1000" y2="700"/>
+      <line x1="0" y1="800" x2="1000" y2="800"/>
+      <line x1="0" y1="900" x2="1000" y2="900"/>
+    </g>
+    <g id="vertical-lines">
+      <line x1="100" y1="0" x2="100" y2="1000"/>
+      <line x1="200" y1="0" x2="200" y2="1000"/>
+      <line x1="300" y1="0" x2="300" y2="1000"/>
+      <line x1="400" y1="0" x2="400" y2="1000"/>
+      <line x1="500" y1="0" x2="500" y2="1000"/>
+      <line x1="600" y1="0" x2="600" y2="1000"/>
+      <line x1="700" y1="0" x2="700" y2="1000"/>
+      <line x1="800" y1="0" x2="800" y2="1000"/>
+      <line x1="900" y1="0" x2="900" y2="1000"/>
+    </g>
+  </g>
+  
+  <!-- Simplified Morocco outline -->
+  <path d="M300,300 C350,250 450,200 550,250 C650,300 700,350 750,450 C800,550 750,650 700,700 C650,750 550,800 450,750 C350,700 300,650 250,550 C200,450 250,350 300,300 Z" 
+        fill="#C8E6C9" stroke="#4CAF50" stroke-width="5"/>
+  
+  <!-- Cities -->
+  <g fill="#00796B" stroke="#FFFFFF" stroke-width="2">
+    <circle cx="350" cy="350" r="10"/> <!-- Tangier -->
+    <circle cx="450" cy="400" r="10"/> <!-- Rabat -->
+    <circle cx="500" cy="450" r="15"/> <!-- Casablanca -->
+    <circle cx="550" cy="550" r="15"/> <!-- Marrakech -->
+    <circle cx="650" cy="500" r="10"/> <!-- Fes -->
+    <circle cx="700" cy="600" r="10"/> <!-- Ouarzazate -->
+  </g>
+  
+  <!-- Roads -->
+  <g stroke="#FF9800" stroke-width="3" stroke-dasharray="10,5" fill="none">
+    <path d="M350,350 L450,400 L500,450 L550,550"/>
+    <path d="M500,450 L650,500"/>
+    <path d="M550,550 L700,600"/>
+  </g>
+  
+  <!-- Water -->
+  <path d="M200,200 C250,150 300,100 400,150 C500,200 600,150 700,200 L700,50 L50,50 L50,300 C100,250 150,250 200,200 Z" 
+        fill="#B3E5FC" stroke="#03A9F4" stroke-width="3"/>
+  
+  <!-- Compass -->
+  <g transform="translate(850, 850)">
+    <circle cx="0" cy="0" r="50" fill="#FFFFFF" stroke="#00796B" stroke-width="2"/>
+    <path d="M0,-40 L10,-10 L0,0 L-10,-10 Z" fill="#00796B"/>
+    <path d="M0,40 L-10,10 L0,0 L10,10 Z" fill="#FF5722"/>
+    <path d="M-40,0 L-10,-10 L0,0 L-10,10 Z" fill="#00796B"/>
+    <path d="M40,0 L10,10 L0,0 L10,-10 Z" fill="#00796B"/>
+    <text x="0" y="-25" text-anchor="middle" fill="#00796B" font-size="12" font-weight="bold">N</text>
+    <text x="0" y="30" text-anchor="middle" fill="#00796B" font-size="12" font-weight="bold">S</text>
+    <text x="-25" y="5" text-anchor="middle" fill="#00796B" font-size="12" font-weight="bold">W</text>
+    <text x="25" y="5" text-anchor="middle" fill="#00796B" font-size="12" font-weight="bold">E</text>
+  </g>
+</svg> 

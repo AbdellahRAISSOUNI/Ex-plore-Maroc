@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="225" viewBox="0 0 400 225">
+  <!-- Background -->
+  <rect width="400" height="225" fill="#FBE9E7" />
+  
+  <!-- Sky -->
+  <rect width="400" height="100" fill="#FFB74D" />
+  
+  <!-- Mountains -->
+  <polygon points="0,100 50,60 100,90 150,50 200,80 250,40 300,70 350,50 400,90 400,100" fill="#F57C00" />
+  
+  <!-- Square -->
+  <rect x="50" y="100" width="300" height="125" fill="#FFCCBC" />
+  
+  <!-- Market stalls -->
+  <g fill="#E64A19">
+    <rect x="70" y="120" width="40" height="30" />
+    <rect x="130" y="120" width="40" height="30" />
+    <rect x="190" y="120" width="40" height="30" />
+    <rect x="250" y="120" width="40" height="30" />
+    <rect x="310" y="120" width="40" height="30" />
+  </g>
+  
+  <!-- People (simplified) -->
+  <g fill="#5D4037">
+    <circle cx="90" cy="170" r="10" />
+    <circle cx="150" cy="180" r="10" />
+    <circle cx="210" cy="170" r="10" />
+    <circle cx="270" cy="180" r="10" />
+    <circle cx="330" cy="170" r="10" />
+    <circle cx="120" cy="190" r="10" />
+    <circle cx="180" cy="190" r="10" />
+    <circle cx="240" cy="190" r="10" />
+    <circle cx="300" cy="190" r="10" />
+  </g>
+  
+  <!-- Minaret -->
+  <rect x="20" y="50" width="20" height="100" fill="#D84315" />
+  <polygon points="20,50 40,50 30,30" fill="#D84315" />
+  
+  <!-- Text -->
+  <text x="200" y="215" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#BF360C">Jemaa el-Fna, Marrakech</text>
+</svg> 
