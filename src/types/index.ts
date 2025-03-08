@@ -68,6 +68,7 @@ export interface Category {
   type: 'location' | 'hotel' | 'restaurant';
   icon: string;
   image: string;
+  count: number;
 }
 
 export interface Hotel {
@@ -111,6 +112,10 @@ export interface Restaurant {
       hours: string;
     }>;
     notes?: string;
+  };
+  coordinates: {
+    latitude: number;
+    longitude: number;
   };
   phone: string;
   email: string;

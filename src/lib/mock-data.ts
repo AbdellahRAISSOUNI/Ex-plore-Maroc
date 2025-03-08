@@ -19,13 +19,27 @@ export const mockLocations: Location[] = [
     shortDescription: 'Famous square and marketplace in Marrakech',
     historicalInfo: 'Dating back to the founding of Marrakech by the Almoravids in 1070-1072, Jemaa el-Fna has been the heart of the city for nearly a millennium.',
     coordinates: { latitude: 31.6258, longitude: -7.9891 },
-    openingHours: { open: '24/7', close: '24/7', days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] },
+    openingHours: { 
+      open: '24/7', 
+      close: '24/7', 
+      days: [
+        { name: 'Monday', hours: '24/7' },
+        { name: 'Tuesday', hours: '24/7' },
+        { name: 'Wednesday', hours: '24/7' },
+        { name: 'Thursday', hours: '24/7' },
+        { name: 'Friday', hours: '24/7' },
+        { name: 'Saturday', hours: '24/7' },
+        { name: 'Sunday', hours: '24/7' }
+      ]
+    },
+    address: 'Jemaa el-Fna Square, Marrakech Medina, Morocco',
+    bestTimeToVisit: 'Late afternoon and evening',
     tags: ['market', 'square', 'food', 'entertainment']
   },
   {
     id: 'hassan-tower',
     name: 'Hassan Tower',
-    image: '/images/hassan-tower.jpg',
+    image: '/images/hasssan-tower.jpg',
     category: 'Monument',
     rating: 4.6,
     reviews: 850,
@@ -33,7 +47,21 @@ export const mockLocations: Location[] = [
     shortDescription: 'Historic minaret in Rabat',
     historicalInfo: 'Construction began in 1195 AD. The tower was intended to be the largest minaret in the world, but construction stopped after Al-Mansur\'s death in 1199.',
     coordinates: { latitude: 34.0241, longitude: -6.8220 },
-    openingHours: { open: '8:00', close: '18:00', days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] },
+    openingHours: { 
+      open: '8:00', 
+      close: '18:00', 
+      days: [
+        { name: 'Monday', hours: '8:00-18:00' },
+        { name: 'Tuesday', hours: '8:00-18:00' },
+        { name: 'Wednesday', hours: '8:00-18:00' },
+        { name: 'Thursday', hours: '8:00-18:00' },
+        { name: 'Friday', hours: '8:00-18:00' },
+        { name: 'Saturday', hours: '8:00-18:00' },
+        { name: 'Sunday', hours: '8:00-18:00' }
+      ]
+    },
+    address: 'Hassan Tower, Avenue Tour Hassan, Rabat, Morocco',
+    bestTimeToVisit: 'Early morning or late afternoon',
     price: 70,
     currency: 'MAD',
     tags: ['monument', 'mosque', 'history']
@@ -49,7 +77,21 @@ export const mockLocations: Location[] = [
     shortDescription: 'Historic palace with beautiful gardens',
     historicalInfo: 'Built in the late 19th century, the palace was intended to be the greatest palace of its time, capturing the essence of Islamic and Moroccan architectural styles.',
     coordinates: { latitude: 31.6218, longitude: -7.9828 },
-    openingHours: { open: '9:00', close: '17:00', days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] },
+    openingHours: { 
+      open: '9:00', 
+      close: '17:00', 
+      days: [
+        { name: 'Monday', hours: '9:00-17:00' },
+        { name: 'Tuesday', hours: '9:00-17:00' },
+        { name: 'Wednesday', hours: '9:00-17:00' },
+        { name: 'Thursday', hours: '9:00-17:00' },
+        { name: 'Friday', hours: '9:00-17:00' },
+        { name: 'Saturday', hours: '9:00-17:00' },
+        { name: 'Sunday', hours: '9:00-17:00' }
+      ]
+    },
+    address: 'Avenue Imam El Ghazali, Marrakech 40000, Morocco',
+    bestTimeToVisit: 'Morning or late afternoon',
     price: 70,
     currency: 'MAD',
     tags: ['palace', 'architecture', 'garden']
@@ -63,7 +105,8 @@ export const mockCategories: Category[] = [
     count: 15,
     icon: 'landmark',
     image: '/images/marrakech.jpg',
-    description: 'Discover historical monuments and cultural landmarks'
+    description: 'Discover historical monuments and cultural landmarks',
+    type: 'location'
   },
   {
     id: 'hotels',
@@ -71,7 +114,8 @@ export const mockCategories: Category[] = [
     count: 42,
     icon: 'hotel',
     image: '/images/hotels/hotel1.jpg',
-    description: 'Find comfortable stays and luxury accommodations'
+    description: 'Find comfortable stays and luxury accommodations',
+    type: 'hotel'
   },
   {
     id: 'restaurants',
@@ -79,7 +123,8 @@ export const mockCategories: Category[] = [
     count: 67,
     icon: 'restaurant',
     image: '/images/restaurants/restaurant1.jpg',
-    description: 'Experience local and international cuisine'
+    description: 'Experience local and international cuisine',
+    type: 'restaurant'
   },
   {
     id: 'activities',
@@ -87,7 +132,8 @@ export const mockCategories: Category[] = [
     count: 28,
     icon: 'activity',
     image: '/images/activities.jpg',
-    description: 'Explore exciting things to do'
+    description: 'Explore exciting things to do',
+    type: 'location'
   }
 ];
 
@@ -96,6 +142,7 @@ export const mockHotels: Hotel[] = [
     id: 'royal-mansour',
     name: 'Royal Mansour Marrakech',
     description: 'Luxury hotel featuring private riads, a spa, and fine dining restaurants in the heart of Marrakech.',
+    shortDescription: 'Luxury hotel with private riads and spa',
     image: '/images/hotels/royal-mansour.jpg',
     rating: 4.9,
     reviews: 876,
@@ -106,12 +153,17 @@ export const mockHotels: Hotel[] = [
     coordinates: {
       latitude: 31.6294,
       longitude: -8.0008
-    }
+    },
+    phone: '+212 5242-38600',
+    email: 'info@royalmansour.ma',
+    website: 'https://www.royalmansour.com',
+    category: 'luxury'
   },
   {
     id: 'mamounia',
     name: 'La Mamounia',
     description: 'Historic luxury hotel with gardens, multiple restaurants, and a spa, located near Jemaa el-Fna.',
+    shortDescription: 'Historic luxury hotel with gardens',
     image: '/images/hotels/mamounia.jpg',
     rating: 4.8,
     reviews: 1243,
@@ -122,12 +174,17 @@ export const mockHotels: Hotel[] = [
     coordinates: {
       latitude: 31.6234,
       longitude: -7.9969
-    }
+    },
+    phone: '+212 5243-88600',
+    email: 'info@mamounia.com',
+    website: 'https://www.mamounia.com',
+    category: 'luxury'
   },
   {
     id: 'riad-kniza',
     name: 'Riad Kniza',
     description: 'Traditional riad with a courtyard pool, restaurant, and rooftop terrace in the Marrakech medina.',
+    shortDescription: 'Traditional riad with courtyard pool',
     image: '/images/hotels/riad-kniza.jpg',
     rating: 4.7,
     reviews: 654,
@@ -138,7 +195,11 @@ export const mockHotels: Hotel[] = [
     coordinates: {
       latitude: 31.6336,
       longitude: -7.9933
-    }
+    },
+    phone: '+212 5243-76942',
+    email: 'info@riadkniza.com',
+    website: 'https://www.riadkniza.com',
+    category: 'riad'
   }
 ];
 
@@ -147,6 +208,7 @@ export const mockRestaurants: Restaurant[] = [
     id: 'nomad',
     name: 'Nomad',
     description: 'Modern Moroccan cuisine served on a rooftop terrace with views of the medina.',
+    shortDescription: 'Modern Moroccan cuisine with a view',
     image: '/images/restaurants/nomad.jpg',
     rating: 4.6,
     reviews: 1876,
@@ -156,17 +218,30 @@ export const mockRestaurants: Restaurant[] = [
     openingHours: {
       open: '12:00',
       close: '23:00',
-      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+      days: [
+        { name: 'Monday', hours: '12:00-23:00' },
+        { name: 'Tuesday', hours: '12:00-23:00' },
+        { name: 'Wednesday', hours: '12:00-23:00' },
+        { name: 'Thursday', hours: '12:00-23:00' },
+        { name: 'Friday', hours: '12:00-23:00' },
+        { name: 'Saturday', hours: '12:00-23:00' },
+        { name: 'Sunday', hours: '12:00-23:00' }
+      ]
     },
     coordinates: {
       latitude: 31.6310,
       longitude: -7.9845
-    }
+    },
+    phone: '+212 5243-81609',
+    email: 'info@nomadmarrakech.com',
+    website: 'https://www.nomadmarrakech.com',
+    category: 'modern'
   },
   {
     id: 'le-jardin',
     name: 'Le Jardin',
     description: 'Restaurant set in a garden courtyard serving Moroccan and international dishes.',
+    shortDescription: 'Garden restaurant with diverse menu',
     image: '/images/restaurants/le-jardin.jpg',
     rating: 4.5,
     reviews: 1243,
@@ -176,17 +251,30 @@ export const mockRestaurants: Restaurant[] = [
     openingHours: {
       open: '12:00',
       close: '23:30',
-      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+      days: [
+        { name: 'Monday', hours: '12:00-23:30' },
+        { name: 'Tuesday', hours: '12:00-23:30' },
+        { name: 'Wednesday', hours: '12:00-23:30' },
+        { name: 'Thursday', hours: '12:00-23:30' },
+        { name: 'Friday', hours: '12:00-23:30' },
+        { name: 'Saturday', hours: '12:00-23:30' },
+        { name: 'Sunday', hours: '12:00-23:30' }
+      ]
     },
     coordinates: {
       latitude: 31.6305,
       longitude: -7.9839
-    }
+    },
+    phone: '+212 5243-78385',
+    email: 'info@lejardin.ma',
+    website: 'https://www.lejardin-marrakech.com',
+    category: 'garden'
   },
   {
     id: 'dar-yacout',
     name: 'Dar Yacout',
     description: 'Traditional Moroccan dining experience in a palatial setting with rooftop views.',
+    shortDescription: 'Traditional Moroccan palace dining',
     image: '/images/restaurants/dar-yacout.jpg',
     rating: 4.7,
     reviews: 987,
@@ -196,12 +284,24 @@ export const mockRestaurants: Restaurant[] = [
     openingHours: {
       open: '19:00',
       close: '23:00',
-      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+      days: [
+        { name: 'Monday', hours: '19:00-23:00' },
+        { name: 'Tuesday', hours: '19:00-23:00' },
+        { name: 'Wednesday', hours: '19:00-23:00' },
+        { name: 'Thursday', hours: '19:00-23:00' },
+        { name: 'Friday', hours: '19:00-23:00' },
+        { name: 'Saturday', hours: '19:00-23:00' },
+        { name: 'Sunday', hours: '19:00-23:00' }
+      ]
     },
     coordinates: {
       latitude: 31.6342,
       longitude: -7.9929
-    }
+    },
+    phone: '+212 5243-82929',
+    email: 'info@dar-yacout.com',
+    website: 'https://www.dar-yacout.com',
+    category: 'traditional'
   }
 ];
 
@@ -314,7 +414,8 @@ export const categories: Category[] = [
     description: 'Discover the most iconic attractions in Morocco',
     type: 'location',
     icon: '/icons/attractions.svg',
-    image: '/images/categories/attractions.jpg'
+    image: '/images/categories/attractions.jpg',
+    count: 15
   },
   {
     id: 'hotels',
@@ -322,7 +423,8 @@ export const categories: Category[] = [
     description: 'Find the perfect place to stay',
     type: 'hotel',
     icon: '/icons/hotels.svg',
-    image: '/images/categories/hotels.jpg'
+    image: '/images/categories/hotels.jpg',
+    count: 42
   },
   {
     id: 'restaurants',
@@ -330,7 +432,8 @@ export const categories: Category[] = [
     description: 'Experience authentic Moroccan cuisine',
     type: 'restaurant',
     icon: '/icons/restaurants.svg',
-    image: '/images/categories/restaurants.jpg'
+    image: '/images/categories/restaurants.jpg',
+    count: 67
   },
   {
     id: 'activities',
@@ -338,7 +441,8 @@ export const categories: Category[] = [
     description: 'Explore exciting activities and experiences',
     type: 'location',
     icon: '/icons/activities.svg',
-    image: '/images/categories/activities.jpg'
+    image: '/images/categories/activities.jpg',
+    count: 28
   }
 ];
 
