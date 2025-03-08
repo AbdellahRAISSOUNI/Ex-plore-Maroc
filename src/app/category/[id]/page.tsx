@@ -2,8 +2,14 @@ import { categories, locations, hotels, restaurants } from '@/lib/mock-data';
 import { Category } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
-export default function CategoryPage({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default function CategoryPage({ params }: PageProps) {
   const category = categories.find((c) => c.id === params.id);
   
   if (!category) {
@@ -58,8 +64,16 @@ export default function CategoryPage({ params }: { params: { id: string } }) {
   );
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return categories.map((category) => ({
     id: category.id,
   }));
+}
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const category = categories.find((c) => c.id === params.id);
+  return {
+    title: category ? `${category.name} | Ex-plore Maroc` : 'Category Not Found | Ex-plore Maroc',
+    description: category?.description || 'Category not found',
+  };
 } 

@@ -1,7 +1,13 @@
 import { locations } from '@/lib/mock-data';
 import Image from 'next/image';
+import { Metadata } from 'next';
 
-export default function LocationPage({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default function LocationPage({ params }: PageProps) {
   const location = locations.find((loc) => loc.id === params.id);
 
   if (!location) {
@@ -89,8 +95,16 @@ export default function LocationPage({ params }: { params: { id: string } }) {
   );
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return locations.map((location) => ({
     id: location.id,
   }));
+}
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const location = locations.find((loc) => loc.id === params.id);
+  return {
+    title: location ? `${location.name} | Ex-plore Maroc` : 'Location Not Found | Ex-plore Maroc',
+    description: location?.description || 'Location not found',
+  };
 } 

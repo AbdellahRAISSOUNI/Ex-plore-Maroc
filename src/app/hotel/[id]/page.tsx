@@ -1,7 +1,13 @@
 import { hotels } from '@/lib/mock-data';
 import Image from 'next/image';
+import { Metadata } from 'next';
 
-export default function HotelPage({ params }: { params: { id: string } }) {
+type PageProps = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default function HotelPage({ params }: PageProps) {
   const hotel = hotels.find((h) => h.id === params.id);
 
   if (!hotel) {
@@ -98,8 +104,16 @@ export default function HotelPage({ params }: { params: { id: string } }) {
   );
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return hotels.map((hotel) => ({
     id: hotel.id,
   }));
+}
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const hotel = hotels.find((h) => h.id === params.id);
+  return {
+    title: hotel ? `${hotel.name} | Ex-plore Maroc` : 'Hotel Not Found | Ex-plore Maroc',
+    description: hotel?.description || 'Hotel not found',
+  };
 } 
