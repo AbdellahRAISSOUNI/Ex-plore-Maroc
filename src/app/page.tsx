@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FiCamera, FiMapPin, FiCompass, FiInfo } from 'react-icons/fi';
+import { FiCamera, FiMapPin, FiCompass, FiInfo, FiStar, FiMap, FiSearch, FiHome, FiCoffee, FiZap } from 'react-icons/fi';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardImage, CardTitle, CardDescription } from '@/components/ui/card';
 import { MobileNav } from '@/components/layout/mobile-nav';
@@ -14,6 +14,8 @@ import { mockLocations, mockCategories } from '@/lib/mock-data';
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [transform, setTransform] = useState('');
 
   useEffect(() => {
     // Simulate loading delay
@@ -21,15 +23,27 @@ export default function Home() {
       setIsLoaded(true);
     }, 500);
 
-    return () => clearTimeout(timer);
+    const handleScroll = () => {
+      const newScrollY = window.scrollY;
+      setScrollY(newScrollY);
+      // Calculate transform here to avoid using window during render
+      setTransform(`perspective(1000px) rotateX(${newScrollY * 0.01}deg) rotateY(${newScrollY * -0.01}deg)`);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleSplashComplete = () => {
     setShowSplash(false);
   };
 
-  // Featured locations (first 2)
-  const featuredLocations = mockLocations.slice(0, 2);
+  // Featured locations (first 3)
+  const featuredLocations = mockLocations.slice(0, 3);
 
   // Animation variants
   const containerVariants = {
@@ -65,7 +79,12 @@ export default function Home() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-30 bg-[var(--primary)] text-white p-4 shadow-md">
+      <motion.header 
+        className="sticky top-0 z-30 bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)] text-white p-4 shadow-md"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      >
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="relative w-8 h-8">
@@ -84,7 +103,7 @@ export default function Home() {
             </div>
           </Link>
         </div>
-      </header>
+      </motion.header>
 
       {/* Main content */}
       <motion.div
@@ -93,21 +112,47 @@ export default function Home() {
         initial="hidden"
         animate={isLoaded ? "visible" : "hidden"}
       >
+        {/* Search bar */}
+        <motion.div 
+          variants={itemVariants}
+          className="relative"
+        >
+          <div className="relative">
+            <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search destinations, hotels, restaurants..."
+              className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all"
+            />
+          </div>
+        </motion.div>
+
         {/* Hero section with camera button */}
         <motion.div 
-          className="relative rounded-xl overflow-hidden h-48 bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary)]"
+          className="relative rounded-xl overflow-hidden h-56 shadow-lg"
           variants={itemVariants}
+          style={{
+            transformStyle: 'preserve-3d',
+            transform: transform
+          }}
         >
+          <Image
+            src="/images/marrakech.jpg"
+            alt="Discover Morocco"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20"></div>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4 text-center">
-            <h2 className="text-xl font-bold mb-2">Discover Morocco</h2>
-            <p className="mb-4 text-sm text-white/80">Point your camera at landmarks to learn more</p>
+            <h2 className="text-2xl font-bold mb-2">Discover Morocco</h2>
+            <p className="mb-4 text-sm text-white/90">Point your camera at landmarks to learn more</p>
             <Link href="/camera">
               <Button 
                 variant="secondary" 
                 size="lg"
-                className="rounded-full"
-                leftIcon={<FiCamera className="w-5 h-5" />}
+                className="rounded-full bg-white text-[var(--primary)] hover:bg-white/90"
               >
+                <FiCamera className="w-5 h-5 mr-2" />
                 Open Camera
               </Button>
             </Link>
@@ -120,16 +165,28 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-3">
             {mockCategories.map((category) => (
               <Link key={category.id} href={`/category/${category.id}`}>
-                <Card className="h-full hover:shadow-lg transition-shadow">
-                  <CardContent className="p-4 flex flex-col items-center text-center">
-                    <div className="w-12 h-12 rounded-full bg-[var(--primary-light)] text-white flex items-center justify-center mb-2">
-                      {category.icon === 'hotel' && <FiMapPin className="w-6 h-6" />}
-                      {category.icon === 'restaurant' && <FiMapPin className="w-6 h-6" />}
-                      {category.icon === 'attraction' && <FiCompass className="w-6 h-6" />}
-                      {category.icon === 'transport' && <FiMapPin className="w-6 h-6" />}
+                <Card className="h-full hover:shadow-lg transition-shadow border-none shadow-md overflow-hidden">
+                  <div className="relative h-24">
+                    <Image
+                      src={category.image}
+                      alt={category.name}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm text-white flex items-center justify-center">
+                        {category.icon === 'landmark' && <FiMapPin className="w-6 h-6" />}
+                        {category.icon === 'hotel' && <FiHome className="w-6 h-6" />}
+                        {category.icon === 'restaurant' && <FiCoffee className="w-6 h-6" />}
+                        {category.icon === 'activity' && <FiZap className="w-6 h-6" />}
+                      </div>
                     </div>
-                    <CardTitle className="text-base">{category.name}</CardTitle>
-                    <CardDescription className="text-xs mt-1">{category.count} places</CardDescription>
+                  </div>
+                  <CardContent className="p-3">
+                    <CardTitle className="text-base mb-1">{category.name}</CardTitle>
+                    <CardDescription className="text-xs line-clamp-2">{category.description}</CardDescription>
+                    <div className="mt-2 text-xs text-[var(--primary)]">{category.count} places</div>
                   </CardContent>
                 </Card>
               </Link>
@@ -146,33 +203,41 @@ export default function Home() {
             </Link>
           </div>
           <div className="space-y-4">
-            {featuredLocations.map((location) => (
+            {featuredLocations.map((location, index) => (
               <Link key={location.id} href={`/location/${location.id}`}>
-                <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <CardImage
-                    src={location.image}
-                    alt={location.name}
-                    aspectRatio="16:9"
-                    width={400}
-                    height={225}
-                  />
-                  <CardContent className="p-3">
-                    <CardTitle>{location.name}</CardTitle>
-                    <CardDescription className="line-clamp-2 mt-1">
-                      {location.shortDescription}
-                    </CardDescription>
-                    <div className="flex items-center mt-2 text-sm">
-                      <div className="flex items-center text-yellow-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                          <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
-                        </svg>
-                        <span className="ml-1">{location.rating}</span>
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                >
+                  <Card className="overflow-hidden border-none shadow-lg">
+                    <div className="relative h-48">
+                      <Image
+                        src={location.image}
+                        alt={location.name}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <h3 className="text-xl font-bold">{location.name}</h3>
+                        <div className="flex items-center mt-1">
+                          <FiMapPin className="w-4 h-4 mr-1" />
+                          <span className="text-sm">{location.category}</span>
+                          <div className="flex items-center ml-3">
+                            <FiStar className="w-4 h-4 mr-1 text-yellow-400" />
+                            <span className="text-sm">{location.rating}</span>
+                          </div>
+                        </div>
                       </div>
-                      <span className="mx-2">•</span>
-                      <span className="text-gray-500">{location.category}</span>
                     </div>
-                  </CardContent>
-                </Card>
+                    <CardContent className="p-3">
+                      <CardDescription className="line-clamp-2 mt-1">
+                        {location.shortDescription}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               </Link>
             ))}
           </div>
@@ -183,7 +248,7 @@ export default function Home() {
           <h2 className="text-lg font-semibold mb-3">Quick Access</h2>
           <div className="grid grid-cols-2 gap-3">
             <Link href="/camera">
-              <Card className="bg-[var(--secondary-light)] text-white hover:shadow-lg transition-shadow">
+              <Card className="bg-gradient-to-br from-[var(--secondary)] to-[var(--secondary-light)] text-white border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <CardContent className="p-4 flex flex-col items-center text-center">
                   <FiCamera className="w-8 h-8 mb-2" />
                   <CardTitle className="text-white">Camera</CardTitle>
@@ -194,9 +259,9 @@ export default function Home() {
               </Card>
             </Link>
             <Link href="/map">
-              <Card className="bg-[var(--primary-light)] text-white hover:shadow-lg transition-shadow">
+              <Card className="bg-gradient-to-br from-[var(--primary)] to-[var(--primary-light)] text-white border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <CardContent className="p-4 flex flex-col items-center text-center">
-                  <FiMapPin className="w-8 h-8 mb-2" />
+                  <FiMap className="w-8 h-8 mb-2" />
                   <CardTitle className="text-white">Map</CardTitle>
                   <CardDescription className="text-white/80 text-xs mt-1">
                     Find nearby places

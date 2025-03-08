@@ -36,69 +36,86 @@ export interface Location {
   name: string;
   description: string;
   shortDescription: string;
+  historicalInfo: string;
   image: string;
+  category: string;
+  rating: number;
+  reviews: number;
+  address: string;
+  bestTimeToVisit: string;
   coordinates: {
     latitude: number;
     longitude: number;
   };
-  category: string;
-  tags: string[];
-  rating: number;
-  reviews: number;
-  historicalInfo: string;
-  openingHours?: {
+  openingHours: {
     open: string;
     close: string;
-    days: string[];
+    days: Array<{
+      name: string;
+      hours: string;
+    }>;
+    notes?: string;
   };
   price?: number;
   currency?: string;
+  tags: string[];
 }
 
 export interface Category {
   id: string;
   name: string;
-  icon: string;
   description: string;
-  count: number;
+  type: 'location' | 'hotel' | 'restaurant';
+  icon: string;
+  image: string;
 }
 
 export interface Hotel {
   id: string;
   name: string;
   description: string;
+  shortDescription: string;
   image: string;
+  address: string;
   rating: number;
   reviews: number;
   price: number;
   currency: string;
-  address: string;
   amenities: string[];
   coordinates: {
     latitude: number;
     longitude: number;
   };
+  phone: string;
+  email: string;
+  website: string;
+  category: string;
 }
 
 export interface Restaurant {
   id: string;
   name: string;
   description: string;
+  shortDescription: string;
   image: string;
+  address: string;
   rating: number;
   reviews: number;
   priceRange: string;
   cuisine: string[];
-  address: string;
   openingHours: {
     open: string;
     close: string;
-    days: string[];
+    days: Array<{
+      name: string;
+      hours: string;
+    }>;
+    notes?: string;
   };
-  coordinates: {
-    latitude: number;
-    longitude: number;
-  };
+  phone: string;
+  email: string;
+  website: string;
+  category: string;
 }
 
 export interface Transport {

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth-context";
 import { ThemeProvider } from "@/lib/theme-context";
+import { PageTransition } from "@/components/layout/page-transition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,13 +48,21 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        
+        {/* Preload common images */}
+        <link rel="preload" as="image" href="/images/logo.svg" />
+        <link rel="preload" as="image" href="/images/locations/jemaa-el-fna.jpg" />
+        <link rel="preload" as="image" href="/images/locations/hassan-tower.jpg" />
+        <link rel="preload" as="image" href="/images/locations/bahia-palace.jpg" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
           <AuthProvider>
-            {children}
+            <PageTransition>
+              {children}
+            </PageTransition>
           </AuthProvider>
         </ThemeProvider>
       </body>

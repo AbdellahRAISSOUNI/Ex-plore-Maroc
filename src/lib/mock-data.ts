@@ -11,100 +11,83 @@ export const mockLocations: Location[] = [
   {
     id: 'jemaa-el-fna',
     name: 'Jemaa el-Fna',
-    description: 'Jemaa el-Fna is a famous square and market place in Marrakesh\'s medina quarter. The square is part of the UNESCO World Heritage site and hosts various activities and food stalls, especially in the evening.',
-    shortDescription: 'Famous square and market place in Marrakesh',
-    image: '/images/locations/jemaa-el-fna.svg',
-    coordinates: {
-      latitude: 31.6258,
-      longitude: -7.9891
-    },
-    category: 'attraction',
-    tags: ['market', 'square', 'food', 'entertainment'],
-    rating: 4.7,
-    reviews: 12453,
-    historicalInfo: 'Jemaa el-Fna has been a central gathering place in Marrakesh since the city\'s foundation in the 11th century. The square\'s name means "assembly of the dead" in Arabic, possibly referring to public executions that took place there in the past. Today, it\'s known for its vibrant atmosphere with storytellers, musicians, snake charmers, and food vendors.',
-    openingHours: {
-      open: '00:00',
-      close: '24:00',
-      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    }
+    image: '/images/marrakech.jpg',
+    category: 'Historical Site',
+    rating: 4.8,
+    reviews: 1250,
+    description: 'A vibrant square and marketplace in Marrakech\'s medina quarter, known for its traditional activities and entertainment.',
+    shortDescription: 'Famous square and marketplace in Marrakech',
+    historicalInfo: 'Dating back to the founding of Marrakech by the Almoravids in 1070-1072, Jemaa el-Fna has been the heart of the city for nearly a millennium.',
+    coordinates: { latitude: 31.6258, longitude: -7.9891 },
+    openingHours: { open: '24/7', close: '24/7', days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] },
+    tags: ['market', 'square', 'food', 'entertainment']
   },
   {
     id: 'hassan-tower',
     name: 'Hassan Tower',
-    description: 'Hassan Tower is the minaret of an incomplete mosque in Rabat. The tower was intended to be the largest minaret in the world along with the mosque, but construction stopped after Sultan Yacoub al-Mansour died in 1199.',
-    shortDescription: 'Historic minaret of an incomplete mosque in Rabat',
-    image: '/images/locations/hassan-tower.svg',
-    coordinates: {
-      latitude: 34.0253,
-      longitude: -6.8261
-    },
-    category: 'monument',
-    tags: ['history', 'architecture', 'minaret', 'mosque'],
-    rating: 4.5,
-    reviews: 8765,
-    historicalInfo: 'Hassan Tower was commissioned by Abu Yusuf Yaqub al-Mansur, the third Caliph of the Almohad Caliphate, in 1195. The tower was designed to be 86 meters tall, but only reached 44 meters when construction halted after al-Mansur\'s death. The tower, made of red sandstone, is decorated with intricate geometric patterns typical of Islamic architecture of the period.',
-    openingHours: {
-      open: '09:00',
-      close: '18:00',
-      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    },
+    image: '/images/hassan-tower.jpg',
+    category: 'Monument',
+    rating: 4.6,
+    reviews: 850,
+    description: 'The Hassan Tower is the minaret of an incomplete mosque in Rabat, Morocco. It was commissioned by Abu Yusuf Yaqub al-Mansur.',
+    shortDescription: 'Historic minaret in Rabat',
+    historicalInfo: 'Construction began in 1195 AD. The tower was intended to be the largest minaret in the world, but construction stopped after Al-Mansur\'s death in 1199.',
+    coordinates: { latitude: 34.0241, longitude: -6.8220 },
+    openingHours: { open: '8:00', close: '18:00', days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] },
     price: 70,
-    currency: 'MAD'
+    currency: 'MAD',
+    tags: ['monument', 'mosque', 'history']
   },
   {
     id: 'bahia-palace',
     name: 'Bahia Palace',
-    description: 'Bahia Palace is a late 19th-century palace in Marrakesh. The palace was built for Si Moussa, grand vizier of the sultan, and later expanded by his son Bou Ahmed. The name means "brilliance" in Arabic.',
-    shortDescription: 'Grand 19th-century palace in Marrakesh',
-    image: '/images/locations/bahia-palace.svg',
-    coordinates: {
-      latitude: 31.6218,
-      longitude: -7.9836
-    },
-    category: 'monument',
-    tags: ['palace', 'architecture', 'history', 'garden'],
-    rating: 4.6,
-    reviews: 9876,
-    historicalInfo: 'Bahia Palace was built in the late 19th century by Si Moussa, grand vizier of Sultan Hassan I, and later expanded by his son Bou Ahmed. The palace showcases Moroccan and Islamic architectural styles with intricate woodwork, zellige tilework, and painted ceilings. It has 150 rooms, including a harem section, courtyards, and gardens designed to capture the essence of Islamic and Moroccan style.',
-    openingHours: {
-      open: '09:00',
-      close: '17:00',
-      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    },
+    image: '/images/bahia.jpg',
+    category: 'Palace',
+    rating: 4.7,
+    reviews: 950,
+    description: 'A stunning example of Moroccan architecture, featuring intricate decorations and beautiful gardens.',
+    shortDescription: 'Historic palace with beautiful gardens',
+    historicalInfo: 'Built in the late 19th century, the palace was intended to be the greatest palace of its time, capturing the essence of Islamic and Moroccan architectural styles.',
+    coordinates: { latitude: 31.6218, longitude: -7.9828 },
+    openingHours: { open: '9:00', close: '17:00', days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] },
     price: 70,
-    currency: 'MAD'
-  }
+    currency: 'MAD',
+    tags: ['palace', 'architecture', 'garden']
+  },
 ];
 
 export const mockCategories: Category[] = [
   {
+    id: 'attractions',
+    name: 'Attractions',
+    count: 15,
+    icon: 'landmark',
+    image: '/images/marrakech.jpg',
+    description: 'Discover historical monuments and cultural landmarks'
+  },
+  {
     id: 'hotels',
     name: 'Hotels',
+    count: 42,
     icon: 'hotel',
-    description: 'Find accommodations ranging from luxury resorts to traditional riads',
-    count: 156
+    image: '/images/hotels/hotel1.jpg',
+    description: 'Find comfortable stays and luxury accommodations'
   },
   {
     id: 'restaurants',
     name: 'Restaurants',
+    count: 67,
     icon: 'restaurant',
-    description: 'Discover authentic Moroccan cuisine and international dining options',
-    count: 243
+    image: '/images/restaurants/restaurant1.jpg',
+    description: 'Experience local and international cuisine'
   },
   {
-    id: 'attractions',
-    name: 'Attractions',
-    icon: 'attraction',
-    description: 'Explore historical sites, museums, and natural wonders',
-    count: 87
-  },
-  {
-    id: 'transport',
-    name: 'Transport',
-    icon: 'transport',
-    description: 'Find transportation options to get around Morocco',
-    count: 42
+    id: 'activities',
+    name: 'Activities',
+    count: 28,
+    icon: 'activity',
+    image: '/images/activities.jpg',
+    description: 'Explore exciting things to do'
   }
 ];
 
@@ -113,7 +96,7 @@ export const mockHotels: Hotel[] = [
     id: 'royal-mansour',
     name: 'Royal Mansour Marrakech',
     description: 'Luxury hotel featuring private riads, a spa, and fine dining restaurants in the heart of Marrakech.',
-    image: '/images/hotels/royal-mansour.svg',
+    image: '/images/hotels/royal-mansour.jpg',
     rating: 4.9,
     reviews: 876,
     price: 9500,
@@ -322,4 +305,51 @@ export const mockAttractions: Attraction[] = [
     },
     historicalInfo: 'The Saadian Tombs date back to the time of Sultan Ahmad al-Mansur (1578-1603) of the Saadian dynasty. The tombs were sealed up and forgotten until 1917 when they were rediscovered during a French aerial survey. The site contains about 60 members of the Saadian dynasty, including al-Mansur, his family, and trusted advisers.'
   }
+];
+
+export const categories: Category[] = [
+  {
+    id: 'attractions',
+    name: 'Attractions',
+    description: 'Discover the most iconic attractions in Morocco',
+    type: 'location',
+    icon: '/icons/attractions.svg',
+    image: '/images/categories/attractions.jpg'
+  },
+  {
+    id: 'hotels',
+    name: 'Hotels',
+    description: 'Find the perfect place to stay',
+    type: 'hotel',
+    icon: '/icons/hotels.svg',
+    image: '/images/categories/hotels.jpg'
+  },
+  {
+    id: 'restaurants',
+    name: 'Restaurants',
+    description: 'Experience authentic Moroccan cuisine',
+    type: 'restaurant',
+    icon: '/icons/restaurants.svg',
+    image: '/images/categories/restaurants.jpg'
+  },
+  {
+    id: 'activities',
+    name: 'Activities',
+    description: 'Explore exciting activities and experiences',
+    type: 'location',
+    icon: '/icons/activities.svg',
+    image: '/images/categories/activities.jpg'
+  }
+];
+
+export const locations: Location[] = [
+  // ... existing locations array ...
+];
+
+export const hotels: Hotel[] = [
+  // ... existing hotels array ...
+];
+
+export const restaurants: Restaurant[] = [
+  // ... existing restaurants array ...
 ]; 
