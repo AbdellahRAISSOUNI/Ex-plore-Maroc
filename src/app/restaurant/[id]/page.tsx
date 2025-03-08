@@ -2,11 +2,15 @@ import { restaurants } from '@/lib/mock-data';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
-export default async function RestaurantPage({
-  params,
-}: {
-  params: { id: string }
-}) {
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const restaurant = restaurants.find((r) => r.id === params.id);
+  return {
+    title: restaurant ? `${restaurant.name} | Ex-plore Maroc` : 'Restaurant Not Found | Ex-plore Maroc',
+    description: restaurant?.description || 'Restaurant not found',
+  };
+}
+
+export default async function RestaurantPage({ params }: { params: { id: string } }) {
   const restaurant = restaurants.find((r) => r.id === params.id);
 
   if (!restaurant) {
@@ -123,12 +127,4 @@ export async function generateStaticParams() {
   return restaurants.map((restaurant) => ({
     id: restaurant.id,
   }));
-}
-
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const restaurant = restaurants.find((r) => r.id === params.id);
-  return {
-    title: restaurant ? `${restaurant.name} | Ex-plore Maroc` : 'Restaurant Not Found | Ex-plore Maroc',
-    description: restaurant?.description || 'Restaurant not found',
-  };
 } 

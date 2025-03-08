@@ -113,7 +113,7 @@ export const mockCategories: Category[] = [
     name: 'Hotels',
     count: 42,
     icon: 'hotel',
-    image: '/images/hotels/hotel1.jpg',
+    image: '/images/marrakech.jpg',
     description: 'Find comfortable stays and luxury accommodations',
     type: 'hotel'
   },
@@ -122,7 +122,7 @@ export const mockCategories: Category[] = [
     name: 'Restaurants',
     count: 67,
     icon: 'restaurant',
-    image: '/images/restaurants/restaurant1.jpg',
+    image: '/images/marrakech.jpg',
     description: 'Experience local and international cuisine',
     type: 'restaurant'
   },
@@ -131,7 +131,7 @@ export const mockCategories: Category[] = [
     name: 'Activities',
     count: 28,
     icon: 'activity',
-    image: '/images/activities.jpg',
+    image: '/images/marrakech.jpg',
     description: 'Explore exciting things to do',
     type: 'location'
   }
@@ -143,7 +143,7 @@ export const mockHotels: Hotel[] = [
     name: 'Royal Mansour Marrakech',
     description: 'Luxury hotel featuring private riads, a spa, and fine dining restaurants in the heart of Marrakech.',
     shortDescription: 'Luxury hotel with private riads and spa',
-    image: '/images/hotels/royal-mansour.jpg',
+    image: '/images/marrakech.jpg',
     rating: 4.9,
     reviews: 876,
     price: 9500,
@@ -164,7 +164,7 @@ export const mockHotels: Hotel[] = [
     name: 'La Mamounia',
     description: 'Historic luxury hotel with gardens, multiple restaurants, and a spa, located near Jemaa el-Fna.',
     shortDescription: 'Historic luxury hotel with gardens',
-    image: '/images/hotels/mamounia.jpg',
+    image: '/images/marrakech.jpg',
     rating: 4.8,
     reviews: 1243,
     price: 5200,
@@ -185,7 +185,7 @@ export const mockHotels: Hotel[] = [
     name: 'Riad Kniza',
     description: 'Traditional riad with a courtyard pool, restaurant, and rooftop terrace in the Marrakech medina.',
     shortDescription: 'Traditional riad with courtyard pool',
-    image: '/images/hotels/riad-kniza.jpg',
+    image: '/images/marrakech.jpg',
     rating: 4.7,
     reviews: 654,
     price: 2800,
@@ -209,7 +209,7 @@ export const mockRestaurants: Restaurant[] = [
     name: 'Nomad',
     description: 'Modern Moroccan cuisine served on a rooftop terrace with views of the medina.',
     shortDescription: 'Modern Moroccan cuisine with a view',
-    image: '/images/restaurants/nomad.jpg',
+    image: '/images/marrakech.jpg',
     rating: 4.6,
     reviews: 1876,
     priceRange: '$$',
@@ -242,7 +242,7 @@ export const mockRestaurants: Restaurant[] = [
     name: 'Le Jardin',
     description: 'Restaurant set in a garden courtyard serving Moroccan and international dishes.',
     shortDescription: 'Garden restaurant with diverse menu',
-    image: '/images/restaurants/le-jardin.jpg',
+    image: '/images/marrakech.jpg',
     rating: 4.5,
     reviews: 1243,
     priceRange: '$$',
@@ -275,7 +275,7 @@ export const mockRestaurants: Restaurant[] = [
     name: 'Dar Yacout',
     description: 'Traditional Moroccan dining experience in a palatial setting with rooftop views.',
     shortDescription: 'Traditional Moroccan palace dining',
-    image: '/images/restaurants/dar-yacout.jpg',
+    image: '/images/marrakech.jpg',
     rating: 4.7,
     reviews: 987,
     priceRange: '$$$',
@@ -407,53 +407,18 @@ export const mockAttractions: Attraction[] = [
   }
 ];
 
-export const categories: Category[] = [
-  {
-    id: 'attractions',
-    name: 'Attractions',
-    description: 'Discover the most iconic attractions in Morocco',
-    type: 'location',
-    icon: '/icons/attractions.svg',
-    image: '/images/categories/attractions.jpg',
-    count: 15
-  },
-  {
-    id: 'hotels',
-    name: 'Hotels',
-    description: 'Find the perfect place to stay',
-    type: 'hotel',
-    icon: '/icons/hotels.svg',
-    image: '/images/categories/hotels.jpg',
-    count: 42
-  },
-  {
-    id: 'restaurants',
-    name: 'Restaurants',
-    description: 'Experience authentic Moroccan cuisine',
-    type: 'restaurant',
-    icon: '/icons/restaurants.svg',
-    image: '/images/categories/restaurants.jpg',
-    count: 67
-  },
-  {
-    id: 'activities',
-    name: 'Activities',
-    description: 'Explore exciting activities and experiences',
-    type: 'location',
-    icon: '/icons/activities.svg',
-    image: '/images/categories/activities.jpg',
-    count: 28
-  }
-];
+export const locations = mockLocations;
+export const categories = mockCategories;
+export const hotels = mockHotels;
+export const restaurants = mockRestaurants;
+export const transports = mockTransports;
+export const attractions = mockAttractions;
 
-export const locations: Location[] = [
-  // ... existing locations array ...
-];
-
-export const hotels: Hotel[] = [
-  // ... existing hotels array ...
-];
-
-export const restaurants: Restaurant[] = [
-  // ... existing restaurants array ...
-]; 
+export default {
+  locations,
+  categories,
+  hotels,
+  restaurants,
+  transports,
+  attractions,
+}; 

@@ -2,11 +2,21 @@ import { hotels } from '@/lib/mock-data';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
-export default async function HotelPage({
-  params,
-}: {
-  params: { id: string }
-}) {
+export async function generateStaticParams() {
+  return hotels.map((hotel) => ({
+    id: hotel.id,
+  }));
+}
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const hotel = hotels.find((h) => h.id === params.id);
+  return {
+    title: hotel ? `${hotel.name} | Ex-plore Maroc` : 'Hotel Not Found | Ex-plore Maroc',
+    description: hotel?.description || 'Hotel not found',
+  };
+}
+
+export default async function HotelPage({ params }: { params: { id: string } }) {
   const hotel = hotels.find((h) => h.id === params.id);
 
   if (!hotel) {
@@ -101,18 +111,4 @@ export default async function HotelPage({
       </div>
     </div>
   );
-}
-
-export async function generateStaticParams() {
-  return hotels.map((hotel) => ({
-    id: hotel.id,
-  }));
-}
-
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const hotel = hotels.find((h) => h.id === params.id);
-  return {
-    title: hotel ? `${hotel.name} | Ex-plore Maroc` : 'Hotel Not Found | Ex-plore Maroc',
-    description: hotel?.description || 'Hotel not found',
-  };
 } 

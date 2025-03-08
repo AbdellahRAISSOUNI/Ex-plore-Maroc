@@ -1,43 +1,29 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth-context";
 import { ThemeProvider } from "@/lib/theme-context";
 import { PageTransition } from "@/components/layout/page-transition";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Explore Maroc",
-  description: "Morocco travel app with camera recognition to enhance tourism",
-  manifest: "/manifest.json",
-  themeColor: "#00796b",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "Explore Maroc",
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
+  title: "Ex-plore Maroc",
+  description: "Discover the beauty of Morocco",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <head>
@@ -55,9 +41,7 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/images/locations/hassan-tower.jpg" />
         <link rel="preload" as="image" href="/images/locations/bahia-palace.jpg" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={inter.className}>
         <ThemeProvider>
           <AuthProvider>
             <PageTransition>

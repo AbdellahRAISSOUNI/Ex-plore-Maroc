@@ -4,11 +4,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
-export default async function CategoryPage({
-  params,
-}: {
-  params: { id: string }
-}) {
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const category = categories.find((c) => c.id === params.id);
+  return {
+    title: category ? `${category.name} | Ex-plore Maroc` : 'Category Not Found | Ex-plore Maroc',
+    description: category?.description || 'Category not found',
+  };
+}
+
+export default async function CategoryPage({ params }: { params: { id: string } }) {
   const category = categories.find((c) => c.id === params.id);
   
   if (!category) {
@@ -67,12 +71,4 @@ export async function generateStaticParams() {
   return categories.map((category) => ({
     id: category.id,
   }));
-}
-
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const category = categories.find((c) => c.id === params.id);
-  return {
-    title: category ? `${category.name} | Ex-plore Maroc` : 'Category Not Found | Ex-plore Maroc',
-    description: category?.description || 'Category not found',
-  };
 } 
