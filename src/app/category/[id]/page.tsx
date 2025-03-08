@@ -4,12 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
-type PageProps = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export default function CategoryPage({ params }: PageProps) {
+export default async function CategoryPage({
+  params,
+}: {
+  params: { id: string }
+}) {
   const category = categories.find((c) => c.id === params.id);
   
   if (!category) {

@@ -2,12 +2,11 @@ import { locations } from '@/lib/mock-data';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
-type PageProps = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export default function LocationPage({ params }: PageProps) {
+export default async function LocationPage({
+  params,
+}: {
+  params: { id: string }
+}) {
   const location = locations.find((loc) => loc.id === params.id);
 
   if (!location) {

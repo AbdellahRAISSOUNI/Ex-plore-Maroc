@@ -2,12 +2,11 @@ import { restaurants } from '@/lib/mock-data';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
-type PageProps = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export default function RestaurantPage({ params }: PageProps) {
+export default async function RestaurantPage({
+  params,
+}: {
+  params: { id: string }
+}) {
   const restaurant = restaurants.find((r) => r.id === params.id);
 
   if (!restaurant) {

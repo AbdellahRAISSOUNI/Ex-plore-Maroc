@@ -2,12 +2,11 @@ import { hotels } from '@/lib/mock-data';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
-type PageProps = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export default function HotelPage({ params }: PageProps) {
+export default async function HotelPage({
+  params,
+}: {
+  params: { id: string }
+}) {
   const hotel = hotels.find((h) => h.id === params.id);
 
   if (!hotel) {
